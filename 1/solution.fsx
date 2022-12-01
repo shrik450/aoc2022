@@ -6,7 +6,9 @@ let chunk totalCalories currentCalories =
     if currentCalories = -1 then
         0 :: totalCalories
     else
-        List.head totalCalories + currentCalories :: totalCalories
+        match totalCalories with
+        | head :: tail -> head + currentCalories :: tail
+        | _ -> failwith "This isn't supposed to happen."
 
 let result_first () =
     input
