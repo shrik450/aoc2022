@@ -7,8 +7,8 @@ let input = File.ReadLines "./input"
 /// This allows for chunking by value without having to use any mutable values
 /// for indexing, as in the answers of
 /// https://stackoverflow.com/questions/6736464/split-seq-in-f
-let parsed (line: string) =
-    if line.Length = 0 then -1 else int line
+let parsed line =
+    if String.length line = 0 then -1 else int line
 
 /// The list of total calories carried by each reindeer.
 let totals totalCalories currentCalories =

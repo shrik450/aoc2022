@@ -1,2 +1,9 @@
 # Don't check in input files.
 input
+
+.fake
+
+# Clojure LSP
+.calva
+.clj-kondo
+.lsp
