@@ -17,10 +17,9 @@ let first_solution input =
     |> Seq.map (
         arrayOfString
         >> splitIntoHalf
-        >> (fun (l, r) -> Set(l), Set(r))
+        >> (fun (l, r) -> Set l, Set r)
         >> (fun (l, r) -> Set.intersect l r)
-        >> Set.toList
-        >> List.head
+        >> Set.maxElement
         >> valueOfChar
     )
     |> Seq.sum
@@ -29,7 +28,7 @@ let second_solution (input: seq<string>) =
     input
     |> Seq.map (arrayOfString >> Set)
     |> Seq.chunkBySize 3
-    |> Seq.map (Set.intersectMany >> Set.toList >> List.head >> valueOfChar)
+    |> Seq.map (Set.intersectMany >> Set.maxElement >> valueOfChar)
     |> Seq.sum
 
 let input = File.ReadLines "./input"
