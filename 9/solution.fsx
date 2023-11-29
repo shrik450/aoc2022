@@ -94,13 +94,10 @@ module Solution2 =
                 let pos = state.positions.[index]
 
                 let newPos =
-                    try
-                        if adjacent prevPos pos then
-                            pos
-                        else
-                            moveToAdjacent prevPos pos
-                    with _ ->
-                        failwith <| sprintf "%A" newPositions
+                    if adjacent prevPos pos then
+                        pos
+                    else
+                        moveToAdjacent prevPos pos
 
                 newPositions.[index] <- newPos)
             [ 1 .. state.positions.Length - 1 ]
